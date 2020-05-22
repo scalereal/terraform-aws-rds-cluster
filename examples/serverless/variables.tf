@@ -76,7 +76,7 @@ variable "master_username" {
 variable "master_password" {
   type        = string
   description = "Password for the master DB user"
-  default     = "admin123"
+  default     = ""
 }
 
 variable "copy_tags_to_snapshot" {
@@ -148,7 +148,8 @@ variable "allowed_cidr_rds_instance" {
 
 variable "snapshot_identifier" {
   type    = string
-  default = "The name of your DB snapshot"
+  default = ""
+  description = "The name of your DB snapshot"
 }
 
 variable "global_cluster_identifier" {
@@ -390,11 +391,3 @@ variable "cluster_family" {
   default     = "aurora5.6"
   description = "The family of the DB cluster parameter group"
 }
-
-
-
-
-
-
-
-

@@ -169,7 +169,7 @@ resource "aws_security_group" "this" {
 }
 
 resource "random_password" "password" {
-  count            = length(var.db_password) == 0 && var.enable ? 1 : 0
+  count            = length(var.master_password) == 0 && var.enable ? 1 : 0
   length           = 16
   special          = true
   override_special = "_%@"

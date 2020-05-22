@@ -169,7 +169,7 @@ resource "aws_security_group" "this" {
 }
 
 resource "random_password" "password" {
-  count            = length(var.db_password) == 0 && var.enable ? 1 : 0
+  count            = length(var.master_password) == 0 && var.enable ? 1 : 0
   length           = 16
   special          = true
   override_special = "_%@"
@@ -180,5 +180,4 @@ locals {
   tags                      = merge(var.tags, map("Name", format("%s-%s-rds-cluster", var.service_name, var.environment)))
   master_password           = var.master_password != "" ? var.master_password : random_password.password[0].result
   final_snapshot_identifier = length(var.final_snapshot_identifier) != 0 ? var.final_snapshot_identifier : format("%s-%s-snapshot", var.service_name, var.environment)
-
 }
