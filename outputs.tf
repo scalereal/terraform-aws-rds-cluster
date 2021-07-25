@@ -15,9 +15,9 @@ output "master_password" {
   value = aws_rds_cluster.rds_cluster[0].master_password
 }
 
-output "hosted_zone_id" {
-  value = aws_rds_cluster_instance[0].hosted_zone_id
-}
+#output "hosted_zone_id" {
+#  value = aws_rds_cluster_instance[0].hosted_zone_id
+#}
 
 output "cluster_identifier" {
   value = aws_rds_cluster.rds_cluster[0].cluster_identifier
