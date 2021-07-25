@@ -39,9 +39,9 @@ output "replicas_host" {
   value = aws_rds_cluster_instance.cluster_instance[*].cluster_identifier
 }
 
-output "cluster_security_groups" {
-  value = aws_security_group.this[0].egress.cidr_blocks
-}
+#output "cluster_security_groups" {
+#  value = aws_security_group.this[0].egress.cidr_blocks
+#}
 
 output "db_cluster_parameter_group_name" {
   value = aws_rds_cluster.rds_cluster[0].db_cluster_parameter_group_name
