@@ -146,18 +146,15 @@ resource "aws_security_group" "this" {
   vpc_id = var.vpc_id
   tags   = local.tags
 
-  ingress {
-    from_port       = var.database_port
-    to_port         = var.database_port
-    protocol        = "tcp"
-    security_groups = var.vpc_security_group_ids
-  }
-
-  ingress {
-    from_port   = var.database_port
-    to_port     = var.database_port
-    protocol    = "tcp"
-    cidr_blocks = var.allowed_cidr_rds_instance
+  dynamic "ingress" {
+    iterator = port
+    for_each = var.rds_ingress_ports
+    content {
+      from_port   = port.value
+      to_port     = port.value
+      protocol    = var.rds_sg_protocol
+      cidr_blocks = var.cidr_blocks_allowed
+    }
   }
 
   egress {

@@ -147,8 +147,8 @@ variable "allowed_cidr_rds_instance" {
 }
 
 variable "snapshot_identifier" {
-  type    = string
-  default = ""
+  type        = string
+  default     = ""
   description = "The name of your DB snapshot"
 }
 
@@ -383,11 +383,24 @@ variable "instance_class" {
 variable "cidr_blocks_allowed" {
   type        = list
   default     = []
-  description = ""
+  description = "Allowed CIDR blocks for security group"
 }
 
 variable "cluster_family" {
   type        = string
   default     = "aurora5.6"
   description = "The family of the DB cluster parameter group"
+}
+
+variable rds_ingress_ports {
+  type        = list(string)
+  default     = [5432]
+  description = "Port number that need to be add as ingress"
+}
+
+
+variable rds_sg_protocol {
+  type        = string
+  default     = "tcp"
+  description = "Security group inbound protocol"
 }
