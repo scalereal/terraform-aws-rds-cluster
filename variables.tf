@@ -131,7 +131,7 @@ variable "preferred_backup_window" {
 variable "database_port" {
   type        = number
   description = "The port on which the DB accepts connections"
-  default     = 3306
+  default     = 5432
 }
 
 variable "vpc_security_group_ids" {
