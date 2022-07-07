@@ -174,7 +174,7 @@ resource "random_password" "password" {
 
 locals {
   cluster_identifier        = length(var.cluster_identifier) == 0 ? format("%s-%s-rds-cluster", var.service_name, var.environment) : var.cluster_identifier
-  tags                      = merge(var.tags, map("Name", format("%s-%s-rds-cluster", var.service_name, var.environment)))
+  tags                      = merge(var.tags, {"Name" = format("%s-%s-rds-cluster", var.service_name, var.environment)})
   master_password           = var.master_password != "" ? var.master_password : random_password.password[0].result
   final_snapshot_identifier = length(var.final_snapshot_identifier) != 0 ? var.final_snapshot_identifier : format("%s-%s-snapshot", var.service_name, var.environment)
 }
