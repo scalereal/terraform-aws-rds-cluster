@@ -13,6 +13,11 @@ variable "aws_region" {
   description = "AWS Region for develop infra"
 }
 
+variable "aws_profile" {
+  type        = string
+  description = "The AWS Profile"
+}
+
 variable "enable" {
   type        = string
   default     = true
