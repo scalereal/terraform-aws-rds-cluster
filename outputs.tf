@@ -13,6 +13,7 @@ output "master_username" {
 
 output "master_password" {
   value = aws_rds_cluster.rds_cluster[0].master_password
+  sensitive = true
 }
 
 #output "hosted_zone_id" {
