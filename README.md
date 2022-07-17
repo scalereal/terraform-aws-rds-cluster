@@ -64,7 +64,7 @@ module "rds-cluster-aws-terraform" {
 
 | Name | Version |
 |------|---------|
-| aws | ~> 2.0 |
+| aws | ~> 4.0 |
 
 ## Inputs
 

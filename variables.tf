@@ -11,6 +11,12 @@ variable "environment" {
 variable "aws_region" {
   type        = string
   description = "AWS Region for develop infra"
+  default     = "us-east-1"
+}
+
+variable "aws_profile" {
+  type        = string
+  description = "The AWS Profile"
 }
 
 variable "enable" {
@@ -33,13 +39,11 @@ variable "cluster_identifier" {
 
 variable "engine" {
   type        = string
-  default     = "aurora"
   description = "The name of the database engine to be used for this DB cluster"
 }
 
 variable "engine_version" {
   type        = string
-  default     = ""
   description = "The database engine version"
 }
 
@@ -68,7 +72,7 @@ variable "database_name" {
 
 variable "master_username" {
   type        = string
-  default     = "admin"
+  default     = "sradmin"
   description = "Username for the master DB user"
 
 }
@@ -250,8 +254,7 @@ variable "scaling_configuration" {
 }
 variable "vpc_id" {
   type        = string
-  description = ""
-  default     = ""
+  description = "VPC to launch the DB in"
 }
 
 variable "timeouts" {
@@ -274,7 +277,6 @@ variable "subnet_group_name_prefix" {
 
 variable "subnet_ids" {
   type        = list
-  default     = []
   description = "A list of VPC subnet IDs (db_subnet_group)"
 }
 
@@ -388,7 +390,6 @@ variable "cidr_blocks_allowed" {
 
 variable "cluster_family" {
   type        = string
-  default     = "aurora5.6"
   description = "The family of the DB cluster parameter group"
 }
 
