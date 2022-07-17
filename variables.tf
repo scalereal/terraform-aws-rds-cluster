@@ -73,7 +73,7 @@ variable "database_name" {
 
 variable "master_username" {
   type        = string
-  default     = "admin"
+  default     = "scadmin"
   description = "Username for the master DB user"
 
 }
